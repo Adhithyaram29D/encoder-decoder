@@ -44,14 +44,43 @@ A0 = Y7 + Y5 + Y3 + Y1 <br>
 
 
 ## Program:
+## Decoder
 
+module decoder(a,b,c,d0,d1,d2,d3,d4,d5,d6,d7);
+input a,b,c;
+output d0,d1,d2,d3,d4,d5,d6,d7;
+assign d0=((~a)&(~b)&(~c));
+assign d1=((~a)&(~b)&c);
+assign d2=((~a)&b&(~c));
+assign d3=((~a)&b&c);
+assign d4=(a&(~b)&(~c));
+assign d5=(a&(~b)&c);
+assign d6=(a&b&(~c));
+assign d7=(a&b&c);
+endmodule
+
+## Encoder
+
+module encoder(y0,y1,y2,y3,y4,y5,y6,y7,a0,a1,a2);
+input y0,y1,y2,y3,y4,y5,y6,y7;
+output a0,a1,a2;
+assign a0=(y7|y5|y3|y1);
+assign a1=(y7|y6|y3|y2);
+assign a2=(y7|y6|y5|y4);
+endmodule
 
 ## RTL Schematic:
-
-
+## Encoder
+![enco rtl](https://github.com/Adhithyaram29D/encoder-decoder/assets/119393540/125464af-7666-4019-ac2c-79627dcc453e)
+## Decoder
+![deco rtl](https://github.com/Adhithyaram29D/encoder-decoder/assets/119393540/b9cfc341-289a-49fa-a10a-e1b48bd513bc)
 
 
 ## Timing Diagram:
+# Encoder
+![enco timing](https://github.com/Adhithyaram29D/encoder-decoder/assets/119393540/a46cf3f0-ac7c-432c-8c2f-9885ec26e6c1)
+# Decoder
+![deco timing](https://github.com/Adhithyaram29D/encoder-decoder/assets/119393540/0defb8c1-f0ce-4055-8b98-a23e9643c70f)
 
 
 
